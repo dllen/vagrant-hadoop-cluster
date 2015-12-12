@@ -125,14 +125,10 @@
     </property>
     <property>
         <name>yarn.log.server.url</name>
-        <value>http://master:8988/jobhistory/logs</value>
+        <value>http://master:8398/jobhistory/logs</value>
     </property>
     <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
-    </property>
-    <property>
-        <name>yarn.application.classpath</name>
-        <value>$HADOOP_COMMON_LIB/*,$HADOOP_COMMON_LIB/lib/*,$HADOOP_HDFS_LIB/*,$HADOOP_HDFS_LIB/lib/*,$HADOOP_MAPRED_LIB/*,$HADOOP_MAPRED_LIB/lib/*,$HADOOP_YARN_LIB/*,$HADOOP_YARN_LIB/lib/*,$HADOOP_TOOL_LIB/*,$HADOOP_TOOL_LIB/lib/*</value>
     </property>
 </configuration>

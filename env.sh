@@ -7,9 +7,11 @@ export JAVA_HOME=${CURRENT_DIR}/jdk1.8.0_65
 export PATH=${JAVA_HOME}/bin:${PATH}
 
 # hadoop
-export HADOOP_HOME=${CURRENT_DIR}/hadoop-2.7.1
+export HADOOP_HOME=${CURRENT_DIR}/hadoop-2.6.0
 export HADOOP_PREFIX=${HADOOP_HOME}
 export HADOOP_YARN_HOME=${HADOOP_HOME}
+export HADOOP_HDFS_HOME=${HADOOP_HOME}
+export HADOOP_COMMON_HOME=${HADOOP_HOME}
 export HADOOP_CONF_DIR=${CURRENT_DIR}/config/hadoop
 export YARN_CONF_DIR=${CURRENT_DIR}/config/hadoop
 export PATH=${HADOOP_HOME}/bin:${PATH}

@@ -25,3 +25,11 @@ ff02::2 ip6-allrouters
 
 EOF
 
+cat > /home/vagrant/.bash_profile <<EOF
+#!/bin/bash
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+EOF
+
