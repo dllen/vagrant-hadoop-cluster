@@ -19,9 +19,11 @@ Vagrant.configure(2) do |config|
     node.vm.hostname = "master"
     node.vm.network :private_network, ip: "10.211.55.100"
     node.vm.provision :shell, inline: <<-SHELL
-      sudo apt-get install -y hadoop-yarn-resourcemanager hadoop-hdfs-namenode hadoop-mapreduce-historyserver hadoop-yarn-proxyserver
-      sudo apt-get install -y hadoop-client
-      sudo apt-get install -y hadoop-lzo
+      cp /vagrant/resources/id_rsa /home/vagrant/.ssh
+      cp /vagrant/resources/id_rsa.pub /home/vagrant/.ssh
+      sudo chown vagrant /home/vagrant/.ssh/id_rsa
+      sudo chgrp vagrant /home/vagrant/.ssh/id_rsa
+      cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
   end
 
@@ -29,9 +31,7 @@ Vagrant.configure(2) do |config|
     node.vm.hostname = "slave1"
     node.vm.network :private_network, ip: "10.211.55.101"
     node.vm.provision :shell, inline: <<-SHELL
-      sudo apt-get install -y hadoop-yarn-nodemanager hadoop-hdfs-datanode hadoop-mapreduce
-      sudo apt-get install hadoop-hdfs-secondarynamenode
-      sudo apt-get install -y hadoop-lzo
+      cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
   end
 
@@ -39,8 +39,7 @@ Vagrant.configure(2) do |config|
     node.vm.hostname = "slave2"
     node.vm.network :private_network, ip: "10.211.55.102"
     node.vm.provision :shell, inline: <<-SHELL
-      sudo apt-get install -y hadoop-yarn-nodemanager hadoop-hdfs-datanode hadoop-mapreduce
-      sudo apt-get install -y hadoop-lzo
+      cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
   end
 
@@ -48,8 +47,7 @@ Vagrant.configure(2) do |config|
     node.vm.hostname = "slave3"
     node.vm.network :private_network, ip: "10.211.55.103"
     node.vm.provision :shell, inline: <<-SHELL
-      sudo apt-get install -y hadoop-yarn-nodemanager hadoop-hdfs-datanode hadoop-mapreduce
-      sudo apt-get install -y hadoop-lzo
+      cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
   end
 
