@@ -105,6 +105,7 @@ fi
 unset IFS
 
 export YARN_PID_DIR=/home/vagrant/var
+export YARN_LOG_DIR=/home/vagrant/var/logs
 
 YARN_OPTS="$YARN_OPTS -Dhadoop.log.dir=$YARN_LOG_DIR"
 YARN_OPTS="$YARN_OPTS -Dyarn.log.dir=$YARN_LOG_DIR"

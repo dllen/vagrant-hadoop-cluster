@@ -1,18 +1,22 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+$clean_hosts_script = <<SCRIPT
+SCRIPT
+
 Vagrant.configure(2) do |config|
 
   config.vm.box = "hashicorp/precise64"
 
   config.vm.box_check_update = false
 
-  config.vm.provision :shell, path: 'init.sh'
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
+
+  config.vm.provision :shell, path: 'init.sh'
   config.vm.provision :hostmanager
 
   config.vm.define :master do |node|
@@ -25,6 +29,10 @@ Vagrant.configure(2) do |config|
       sudo chgrp vagrant /home/vagrant/.ssh/id_rsa
       cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
+    node.vm.provider :virtualbox do |v|
+      v.cpus = 1
+      v.memory = 2048
+    end
   end
 
   config.vm.define :slave1 do |node|
@@ -33,6 +41,10 @@ Vagrant.configure(2) do |config|
     node.vm.provision :shell, inline: <<-SHELL
       cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
+    node.vm.provider :virtualbox do |v|
+      v.cpus = 1
+      v.memory = 2048
+    end
   end
 
   config.vm.define :slave2 do |node|
@@ -41,6 +53,10 @@ Vagrant.configure(2) do |config|
     node.vm.provision :shell, inline: <<-SHELL
       cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
+    node.vm.provider :virtualbox do |v|
+      v.cpus = 1
+      v.memory = 2048
+    end
   end
 
   config.vm.define :slave3 do |node|
@@ -49,6 +65,10 @@ Vagrant.configure(2) do |config|
     node.vm.provision :shell, inline: <<-SHELL
       cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
     SHELL
+    node.vm.provider :virtualbox do |v|
+      v.cpus = 1
+      v.memory = 2048
+    end
   end
 
 end

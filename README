@@ -1,0 +1,10 @@
+
+$HADOOP_PREFIX/bin/hdfs namenode -format hadoop-cluster
+
+$HADOOP_PREFIX/sbin/start-dfs.sh
+
+$HADOOP_PREFIX/sbin/start-yarn.sh
+
+$HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start proxyserver
+
+$HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
