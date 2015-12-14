@@ -24,3 +24,5 @@ export MAVEN_OPTS="-Dmaven.artifact.threads=32 -Xmx2g -XX:MaxPermSize=512M -XX:R
 # hive
 export HIVE_HOME=${CURRENT_DIR}/hive-1.2.1
 export PATH=${HIVE_HOME}/bin:${PATH}
+
+alias control='/vagrant/control.sh'
