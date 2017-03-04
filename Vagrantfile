@@ -6,7 +6,7 @@ SCRIPT
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "hashicorp/precise64"
+  config.vm.box = "centos65"
 
   config.vm.box_check_update = false
 
@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 2048
+      v.memory = 1024
     end
   end
 
@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 2048
+      v.memory = 1024
     end
   end
 
@@ -55,19 +55,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 2048
-    end
-  end
-
-  config.vm.define :slave3 do |node|
-    node.vm.hostname = "slave3"
-    node.vm.network :private_network, ip: "10.211.55.103"
-    node.vm.provision :shell, inline: <<-SHELL
-      cat /vagrant/resources/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-    SHELL
-    node.vm.provider :virtualbox do |v|
-      v.cpus = 1
-      v.memory = 2048
+      v.memory = 1024
     end
   end
 
