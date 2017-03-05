@@ -25,7 +25,7 @@
 if [ ${JAVA_HOME} ]; then
     export JAVA_HOME=${JAVA_HOME}
 else
-    export JAVA_HOME=/vagrant/jdk1.8.0_65
+    export JAVA_HOME=/vagrant/jdk1.8.0_91
 fi
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes

@@ -6,7 +6,7 @@ SCRIPT
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "centos65"
+  config.vm.box = "http://files.vagrantup.com/precise64.box"
 
   config.vm.box_check_update = false
 
@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 1024
+      v.memory = 1536
     end
   end
 
@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 1024
+      v.memory = 1536
     end
   end
 
@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
     SHELL
     node.vm.provider :virtualbox do |v|
       v.cpus = 1
-      v.memory = 1024
+      v.memory = 1536
     end
   end
 
